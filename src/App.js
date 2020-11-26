@@ -16,7 +16,7 @@ import i012 from './assets/12.jpg'
 class App extends Component {
   timer = null;
   images = [{name: i01, comment: "Hey.. wake up.. waaaaakkkkke uppp. It's school time now."},
-  {name: i02, comment: "Somebody.. please hold me. I don't wanna go to school."},
+  {name: i02, comment: "Somebody.. please hold me. I don't wanna go school."},
   {name: i03, comment: "When you are the only one who hasn't finished the homework."},
   {name: i04, comment: "Lisa, could you please give me your maths notebook for a day."},
   {name: i05, comment: "God, please... please save me from Maths teacher for today."},
@@ -92,6 +92,7 @@ class App extends Component {
     }
   }
   render() {
+    let x = document.body.clientHeight
     return (
       <>
       <div className="stars"/>
@@ -104,25 +105,27 @@ class App extends Component {
                 {+(this.state.currentImage+1) + '/12'}
               </div>
             </div>
-            <div className="photoframe">
-              <img src={this.images[this.state.currentImage].name} alt=""></img>
-            </div>
-          </div>
-          <div className="control-section">
             {this.state.currentImage >= 0 && this.state.currentImage < 11 && this.state.waitOver && <div className="comment-container">
               {this.images[this.state.currentImage].comment}
             </div>}
+            <div className="photoframe">
+              <img src={this.images[this.state.currentImage].name} alt="" ></img>
+            </div>
+          </div>
+          <div className="control-section">
             {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
               <div className="right-arrow"></div>
             </div>}
             {this.state.currentImage > 0 && <div className="left-arrow-container" onClick={this.previous}>
               <div className="left-arrow"></div>
             </div>}
-            <div className="restart-button" onClick={this.restart}>
-              Restart
-            </div>
-            <div className="pause-button" onClick={this.pauseResume}>
-              {this.state.runningStatus}
+            <div className="buttons-container">
+              <div className="restart-button" onClick={this.restart}>
+                Restart
+              </div>
+              <div className="pause-button" onClick={this.pauseResume}>
+                {this.state.runningStatus}
+              </div>
             </div>
           </div>
         </div>
