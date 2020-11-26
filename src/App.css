@@ -154,6 +154,18 @@ img{
   max-width: 23rem;
   object-fit: contain;
 }
+.comment-container{
+  position: fixed;
+  bottom: 3rem;
+  width: 22.4rem;
+  height: auto;
+  border: 2px solid rgb(16, 198, 253);
+  left: calc(50vw - 22.4rem / 2);
+  z-index: 9;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(227, 235, 253);
+}
 
 @keyframes fade-in-out {
   0% {opacity: 0.4;}

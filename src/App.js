@@ -15,7 +15,18 @@ import i012 from './assets/12.jpg'
 
 class App extends Component {
   timer = null;
-  images = [i01, i02, i03, i04, i05, i06, i07, i08, i09, i010, i011, i012]
+  images = [{name: i01, comment: "Hey.. wake up.. waaaaakkkkke uppp. It's school time now."},
+  {name: i02, comment: "Somebody.. please hold me. I don't wanna go to school."},
+  {name: i03, comment: "When you are the only one who hasn't finished the homework."},
+  {name: i04, comment: "Lisa, could you please give me your maths notebook for a day."},
+  {name: i05, comment: "God, please... please save me from Maths teacher for today."},
+  {name: i06, comment: "She.. yes she.. She didn't let me complete my homework, mam."},
+  {name: i07, comment: "Pluto: Do you know how far I am from the sun? \n Lisa: Dude... watch carefully.. you are still under the sun."},
+  {name: i08, comment: "When teacher told: Pluto's status's been downgraded to 'Dwarf Planet'."},
+  {name: i09, comment: "Don't worry. We don't discriminate the adopted ones"},
+  {name: i010, comment: "Gosh.. All males have one and only one pose for photograph."},
+  {name: i011, comment: "When it's actually Sunday.. but he's been told it's Monday."},
+  {name: i012, comment: ""},]
   changeTime = 5000
   
   constructor(props){
@@ -91,9 +102,12 @@ class App extends Component {
             </div>
           </div>
           <div className="photoframe">
-            <img src={this.images[this.state.currentImage]} alt=""></img>
+            <img src={this.images[this.state.currentImage].name} alt=""></img>
           </div>
         </div>
+        {this.state.currentImage >= 0 && this.state.currentImage < 11 && <div className="comment-container">
+          {this.images[this.state.currentImage].comment}
+        </div>}
         {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
           <div className="right-arrow"></div>
         </div>}
