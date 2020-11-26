@@ -11,7 +11,7 @@ https://mkrtchyan.ga
 .app{
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
 }
 
@@ -45,6 +45,7 @@ https://mkrtchyan.ga
   cursor: pointer;
   animation: fade-in-out 5000ms linear 10ms infinite forwards;
   z-index: 7;
+  clip: rect(0px,40px,96px,0px);
 }
 
 .right-arror-container:hover{
@@ -55,7 +56,7 @@ https://mkrtchyan.ga
 .right-arrow{
   position: relative;
   top: 2rem;
-  left: 0.7rem;
+  left: 0.4rem;
   border-top: 2px solid white;
   border-right: 2px solid white;
   width: 1.5rem;
@@ -78,6 +79,7 @@ https://mkrtchyan.ga
   cursor: pointer;
   animation: fade-in-out 5000ms linear 10ms infinite forwards;
   z-index: 7;
+  clip: rect(0px,96px,96px,56px);
 }
 
 
@@ -89,7 +91,7 @@ https://mkrtchyan.ga
 .left-arrow{
   position: relative;
   top: 2rem;
-  left: 03.5rem;
+  left: 3.8rem;
   border-top: 2px solid white;
   border-right: 2px solid white;
   width: 1.5rem;
