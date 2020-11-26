@@ -157,8 +157,10 @@ html, body{
 
 img{
   max-width: 23rem;
-  max-height: calc(100vh - 18px);
-  min-height: calc(100vh - 18px);
+  max-height: fill-available;
+  max-height: -webkit-fill-available;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
   object-fit: contain;
 }
 .comment-container{
