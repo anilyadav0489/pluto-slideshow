@@ -16,7 +16,7 @@ import i012 from './assets/12.jpg'
 class App extends Component {
   timer = null;
   images = [i01, i02, i03, i04, i05, i06, i07, i08, i09, i010, i011, i012]
-  changeTime = 2000
+  changeTime = 5000
   
   constructor(props){
     super(props);
@@ -83,14 +83,15 @@ class App extends Component {
     return (
       <div className="App">
         <div className="stars"/>
-        <div className="twinkling heart-div">
+        <div className="twinkling"/>
+        <div className="photo-container">
           <div className="progress-bar">
             <div className="image-count">
               {+(this.state.currentImage+1) + '/12'}
             </div>
           </div>
           <div className="photoframe">
-            <img src={this.images[this.state.currentImage]} className="birthday" alt=""></img>
+            <img src={this.images[this.state.currentImage]} alt=""></img>
           </div>
         </div>
         {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
