@@ -41,7 +41,7 @@ class App extends Component {
   startSlideShow=()=>{
     this.timer = setInterval(()=>{
       this.setState((prevState)=> {return {currentImage: prevState.currentImage + 1, waitOver: false}})
-      setTimeout(()=> this.setState({waitOver: true}), 200)
+      setTimeout(()=> this.setState({waitOver: true}), 300)
     }, this.changeTime)
   }
 
@@ -93,35 +93,41 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className="stars"/>
-        <div className="twinkling"/>
-        <div className="photo-container">
-          <div className="progress-bar">
-            <div className="image-count">
-              {+(this.state.currentImage+1) + '/12'}
+      <>
+      <div className="stars"/>
+      <div className="twinkling"/>
+      <div className="app">
+        <div className="main-section">
+          <div className="photo-container">
+            <div className="progress-bar">
+              <div className="image-count">
+                {+(this.state.currentImage+1) + '/12'}
+              </div>
+            </div>
+            <div className="photoframe">
+              <img src={this.images[this.state.currentImage].name} alt=""></img>
             </div>
           </div>
-          <div className="photoframe">
-            <img src={this.images[this.state.currentImage].name} alt=""></img>
+          <div className="control-section">
+            {this.state.currentImage >= 0 && this.state.currentImage < 11 && this.state.waitOver && <div className="comment-container">
+              {this.images[this.state.currentImage].comment}
+            </div>}
+            {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
+              <div className="right-arrow"></div>
+            </div>}
+            {this.state.currentImage > 0 && <div className="left-arrow-container" onClick={this.previous}>
+              <div className="left-arrow"></div>
+            </div>}
+            <div className="restart-button" onClick={this.restart}>
+              Restart
+            </div>
+            <div className="pause-button" onClick={this.pauseResume}>
+              {this.state.runningStatus}
+            </div>
           </div>
         </div>
-        {this.state.currentImage >= 0 && this.state.currentImage < 11 && this.state.waitOver && <div className="comment-container">
-          {this.images[this.state.currentImage].comment}
-        </div>}
-        {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
-          <div className="right-arrow"></div>
-        </div>}
-        {this.state.currentImage > 0 && <div className="left-arrow-container" onClick={this.previous}>
-          <div className="left-arrow"></div>
-        </div>}
-        <div className="restart-button" onClick={this.restart}>
-          Restart
-        </div>
-        <div className="pause-button" onClick={this.pauseResume}>
-          {this.state.runningStatus}
-        </div>
       </div>
+      </>
     );
   }
 }
