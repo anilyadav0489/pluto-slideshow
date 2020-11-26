@@ -92,7 +92,6 @@ class App extends Component {
     }
   }
   render() {
-    let x = document.body.clientHeight
     return (
       <>
       <div className="stars"/>
