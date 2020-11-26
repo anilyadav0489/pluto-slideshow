@@ -27,7 +27,7 @@ class App extends Component {
   {name: i010, comment: "Gosh.. All males have one and only one pose for photograph."},
   {name: i011, comment: "When it's actually Sunday.. but he's been told it's Monday."},
   {name: i012, comment: ""},]
-  changeTime = 5000
+  changeTime = 7000
   
   constructor(props){
     super(props);
