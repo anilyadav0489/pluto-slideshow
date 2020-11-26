@@ -33,13 +33,15 @@ class App extends Component {
     super(props);
     this.state={
       currentImage: 0,
-      runningStatus: "Pause"
+      runningStatus: "Pause",
+      waitOver: true
     }
   }
 
   startSlideShow=()=>{
     this.timer = setInterval(()=>{
-      this.setState((prevState)=> {return {currentImage: prevState.currentImage + 1}})
+      this.setState((prevState)=> {return {currentImage: prevState.currentImage + 1, waitOver: false}})
+      setTimeout(()=> this.setState({waitOver: true}), 100)
     }, this.changeTime)
   }
 
@@ -90,7 +92,6 @@ class App extends Component {
     }
   }
   render() {
-    
     return (
       <div className="App">
         <div className="stars"/>
@@ -105,7 +106,7 @@ class App extends Component {
             <img src={this.images[this.state.currentImage].name} alt=""></img>
           </div>
         </div>
-        {this.state.currentImage >= 0 && this.state.currentImage < 11 && <div className="comment-container">
+        {this.state.currentImage >= 0 && this.state.currentImage < 11 && this.state.waitOver && <div className="comment-container">
           {this.images[this.state.currentImage].comment}
         </div>}
         {this.state.currentImage < 11 && <div className="right-arror-container" onClick={this.next}>
