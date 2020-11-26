@@ -41,7 +41,7 @@ class App extends Component {
   startSlideShow=()=>{
     this.timer = setInterval(()=>{
       this.setState((prevState)=> {return {currentImage: prevState.currentImage + 1, waitOver: false}})
-      setTimeout(()=> this.setState({waitOver: true}), 100)
+      setTimeout(()=> this.setState({waitOver: true}), 200)
     }, this.changeTime)
   }
 
